@@ -51,8 +51,12 @@ function timeConversion(h, m) {
 
   if (m == 0 || 00) return `${words[h]} o' clock`;
   else if (!m) return `${words[h]} o' clock`;
+  else if (m == 45 && h == 12) return `It's a quarter to ${words[1]}!`;
   else if (m == 15) return `It's a quarter past ${words[h]}!`;
   else if (m == 45) return `It's a quarter to ${words[h + 1]}!`;
+  else if (m < 30 && h == 12) return `It's a quarter to ${words[1]}!`;
+  else if (m == 30) return `It's half past ${words[h]}!`;
+  else if (m == 1) return `${words[m]} minute past ${words[h]}!`;
   else if (m < 30) return `${words[m]} minutes past ${words[h]}!`;
   else if (m > 30) return `${words[60 - m]} minutes until ${words[h + 1]}!`;
 }
